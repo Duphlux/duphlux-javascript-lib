@@ -1,10 +1,10 @@
 # duphlux-javascript-lib
-Javascript inline implementation
+Javascript inline implementation. No redirects, perform authentication on same page.
 
 
 ## Implementation
 
-The implementation of Duphlux is a simple process. 
+Implementing Duphlux JS is a simple process. 
 
 First add a line of client-side code. We recommend adding it as the first script on your page.
 
@@ -31,12 +31,15 @@ Once you've added our script to your page, you can launch duphlux by adding a si
             transaction_reference: [TRANSACTION-REFERENCE], // A unique transaction reference to identity this authentication request
             callback: function () {
                 return {
+                    ## Called on a successful authentication. We pass back your unique transaction reference.
                     onSuccess: function (reference) {
                         alert("Success: " + reference); // Handle this event your own way
                     },
+                    ## Called when an authentication fails. We pass back your unique transaction reference.
                     onFailure: function (reference) {
                         alert("Failed: " + reference); // Handle this event your own way
                     },
+                    ## Called if we encounter any duphlux related errors. We pass the error message encountered.
                     onError: function (errorMessage) {
                         alert("Error: " + errorMessage); // Handle this event your own way
                     }
